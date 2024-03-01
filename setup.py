@@ -25,7 +25,7 @@ def get_required_packages():
       'absl-py >= 0.6.1',  # Oct 26, 2018
       'funcsigs >= 1.0.2',  # Apr 25, 2016
       'numpy >= 1.15.4',  # Nov 4, 2018
-      'scikit-learn == 0.22',  # Feb 28, 2020
+      'scikit-learn >= 0.22',  # Feb 28, 2020
       'six >= 1.12.0',  # Dec 9, 2018
       'tensorflow >= 2.2.0',  # May 7, 2020
   ]
