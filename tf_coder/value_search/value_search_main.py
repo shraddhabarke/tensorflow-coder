@@ -61,7 +61,7 @@ def benchmark_name_validator(benchmark_name):
           all_benchmarks.find_benchmark_with_name(benchmark_name) is not None)
 
 flags.register_validator('benchmark_name', benchmark_name_validator,
-                         message=('benchmark_name must be "ALL" or refer to '
+                        message=('benchmark_name must be "ALL" or refer to '
                                   'exactly one benchmark.'))
 
 
@@ -88,8 +88,8 @@ def run_on_all_benchmarks(settings, description_handler, json_output,
     tensor_config = tensor_features_model.load_config(
         settings.tensor_model.config_path)
     tensor_model = tensor_features_model.get_model(tensor_config)
-    checkpoint = tensor_features_model.create_checkpoint(tensor_model)
-    checkpoint.restore(settings.tensor_model.checkpoint_path).expect_partial()
+    #checkpoint = tensor_features_model.create_checkpoint(tensor_model)
+    #checkpoint.restore(settings.tensor_model.checkpoint_path).expect_partial()
 
     # Warm up. Running the model for the first time takes an extra ~10 seconds.
     print('Warming up the tensor features model...')
@@ -106,7 +106,7 @@ def run_on_all_benchmarks(settings, description_handler, json_output,
   if benchmark_name == 'ALL':
     # Only run on benchmarks from these important modules.
     modules = [google_benchmarks, stackoverflow_benchmarks,
-               autopandas_benchmarks]
+              autopandas_benchmarks]
   else:
     # Allow searching by name among even more benchmark modules.
     modules = None
