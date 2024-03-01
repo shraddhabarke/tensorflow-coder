@@ -77,7 +77,7 @@ def parse_example_proto(serialized_example: Text) -> Dict[Text, tf.Tensor]:
 def get_model(config: ConfigType) -> Model:
   """Gets a namedtuple with all the variables and layers of the model."""
   initializer = tf.initializers.GlorotUniform()
-  optimizer = tf.keras.optimizers.legacy.Adam(config['learning_rate'])
+  optimizer = tf.keras.optimizers.Adam(config['learning_rate'])
   optimizer.iterations = tf.compat.v1.train.get_or_create_global_step()
 
   return Model(
