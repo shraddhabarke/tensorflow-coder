@@ -46,7 +46,7 @@ def run_setup():
                    'A Program Synthesis Tool for TensorFlow'),
       long_description=long_description,
       long_description_content_type='text/markdown',
-      url='https://github.com/google-research/tensorflow-coder',
+      url='https://github.com/shraddhabarke/tensorflow-coder.git',
       packages=setuptools.find_packages(
           exclude=['tf_coder_colab_logging', 'tf_coder_colab_logging.*']),
       package_data={
