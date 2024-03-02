@@ -181,14 +181,14 @@ def run_on_all_benchmarks(settings, description_handler, json_output,
         unsolved.name, unsolved.target_program))
   print()
 
-  if json_output and benchmark_name == 'ALL':
-    with open(json_output, 'w') as json_file:
-      json.dump(results_json, json_file,
-                indent=4, sort_keys=True, separators=(',', ': '))
-      json_file.write('\n')
-    print('Wrote JSON results to {}.'.format(json_output))
-  else:
-    print('Did not write JSON results file.')
+  #if json_output and benchmark_name == 'ALL':
+  with open(json_output, 'w') as json_file:
+    json.dump(results_json, json_file,
+              indent=4, sort_keys=True, separators=(',', ': '))
+    json_file.write('\n')
+  print('Wrote JSON results to {}.'.format(json_output))
+  #else:
+    #print('Did not write JSON results file.')
 
 
 def main(unused_argv):
