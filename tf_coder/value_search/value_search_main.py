@@ -42,7 +42,7 @@ FLAGS = flags.FLAGS
 flags.DEFINE_string('benchmark_name', 'ALL',
                     'The name of a benchmark to run, or "ALL".')
 flags.DEFINE_multi_string('settings',
-                          ['timeout=5'],
+                          ['timeout=600'],
                           'Settings to override the defaults.')
 flags.DEFINE_string(
     'json_output',
@@ -182,7 +182,7 @@ def run_on_all_benchmarks(settings, description_handler, json_output,
   print()
 
   #if json_output and benchmark_name == 'ALL':
-  with open("tfcoder_results", 'w') as json_file:
+  with open("tfcoder_results.json", 'w') as json_file:
     json.dump(results_json, json_file,
               indent=4, sort_keys=True, separators=(',', ': '))
     json_file.write('\n')
