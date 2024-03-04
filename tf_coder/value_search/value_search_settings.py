@@ -173,7 +173,7 @@ class PaperExperimentSettings(object):
 
   def __init__(self):
     self.skip_filtering = False
-    self.uniform_weights = True
+    self.uniform_weights = False
 
 
 def default_settings() -> Settings:
