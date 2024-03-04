@@ -42,7 +42,7 @@ FLAGS = flags.FLAGS
 flags.DEFINE_string('benchmark_name', 'ALL',
                     'The name of a benchmark to run, or "ALL".')
 flags.DEFINE_multi_string('settings',
-                          ['timeout=600'],
+                          ['timeout=60'],
                           'Settings to override the defaults.')
 flags.DEFINE_string(
     'json_output',
@@ -105,8 +105,7 @@ def run_on_all_benchmarks(settings, description_handler, json_output,
 
   if benchmark_name == 'ALL':
     # Only run on benchmarks from these important modules.
-    modules = [google_benchmarks, stackoverflow_benchmarks,
-              autopandas_benchmarks]
+    modules = [google_benchmarks]
   else:
     # Allow searching by name among even more benchmark modules.
     modules = None
@@ -189,6 +188,7 @@ def run_on_all_benchmarks(settings, description_handler, json_output,
   print('Wrote JSON results to {}.'.format(json_output))
   #else:
     #print('Did not write JSON results file.')
+
 
 
 def main(unused_argv):
