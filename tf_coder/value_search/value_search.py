@@ -562,6 +562,7 @@ def get_reweighted_operations(
         multipliers,
         operation_multipliers_from_tensor_model(benchmark, tensor_model,
                                                 tensor_config, settings))
+    print("multipliers:", multipliers)
   for operation in operations:
     operation.weight = max(
         1, int(round(operation.weight * multipliers.get(operation.name, 1))))
