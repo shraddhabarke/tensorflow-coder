@@ -42,7 +42,7 @@ FLAGS = flags.FLAGS
 flags.DEFINE_string('benchmark_name', 'ALL',
                     'The name of a benchmark to run, or "ALL".')
 flags.DEFINE_multi_string('settings',
-                          ['timeout=60'],
+                          ['timeout=600'],
                           'Settings to override the defaults.')
 flags.DEFINE_string(
     'json_output',
