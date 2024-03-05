@@ -545,6 +545,7 @@ def get_reweighted_operations(
 
   operation_names = [op.name for op in operations]
   print("operation_names", operation_names)
+  print("uniform-", settings.paper_experiments.uniform_weights)
   if len(operation_names) != len(set(operation_names)):
     raise ValueError('Operation names were not unique.')
 
