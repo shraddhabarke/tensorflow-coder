@@ -14,7 +14,7 @@
 
 # Lint as: python3
 """Exhaustive value search (enumerating by weight of expression)."""
-
+import json
 import collections
 import keyword
 import re
@@ -61,6 +61,15 @@ ValueSearchResults = NamedTuple('ValueSearchResults', [
     ('statistics', Optional[operation_statistics.OperationStatistics]),
 ])
 
+def read_json_file(file_path):
+    with open(file_path, 'r') as file:
+        return json.load(file)
+
+def find_task_by_id(tasks, task_id):
+    for task in tasks:
+        if task['task_id'] == task_id:
+            return task
+    return None
 
 def _suppress_warnings() -> None:
   """Suppress TensorFlow and Numpy warnings."""
@@ -537,6 +546,10 @@ def get_reweighted_operations(
 ) -> List[operation_base.Operation]:
   """Returns a list of operations with correct weights for the problem."""
   print("benchmark-name:", benchmark.name)
+  tasks = read_json_file("output_modified_tfcoder.json")
+  task_id = benchmark.name  # Assume benchmark name matches task_id
+    # Find the task with the matching task_id
+  task = next((task for task in tasks if task['task_id'] == task_id), None)
   include_sparse_operations = (
       not settings.operations.limit_sparse_operations or
       _contains_sparse(benchmark))
@@ -544,8 +557,6 @@ def get_reweighted_operations(
       include_sparse_operations=include_sparse_operations)
 
   operation_names = [op.name for op in operations]
-  print("operation_names", operation_names)
-  print("uniform-", settings.paper_experiments.uniform_weights)
   if len(operation_names) != len(set(operation_names)):
     raise ValueError('Operation names were not unique.')
 
@@ -566,13 +577,9 @@ def get_reweighted_operations(
         multipliers,
         operation_multipliers_from_tensor_model(benchmark, tensor_model,
                                                 tensor_config, settings))
-  print("multipliers:", multipliers)
   for operation in operations:
-    # todo
-    operation.weight = max(
-        1, int(round(operation.weight * multipliers.get(operation.name, 1))))
-    print("operation.weight", operation.weight)
-
+    op_weight = task["costs"]["Tensor-Operations"].get(operation.name, 0)
+    operation.weight = op_weight
   return operations
 
 
