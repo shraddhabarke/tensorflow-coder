@@ -536,6 +536,7 @@ def get_reweighted_operations(
     tensor_config: Optional[Dict[Text, Any]] = None,
 ) -> List[operation_base.Operation]:
   """Returns a list of operations with correct weights for the problem."""
+  print("benchmark-name:", benchmark.name)
   include_sparse_operations = (
       not settings.operations.limit_sparse_operations or
       _contains_sparse(benchmark))
@@ -543,6 +544,7 @@ def get_reweighted_operations(
       include_sparse_operations=include_sparse_operations)
 
   operation_names = [op.name for op in operations]
+  print("operation_names", operation_names)
   if len(operation_names) != len(set(operation_names)):
     raise ValueError('Operation names were not unique.')
 
@@ -566,6 +568,7 @@ def get_reweighted_operations(
   for operation in operations:
     operation.weight = max(
         1, int(round(operation.weight * multipliers.get(operation.name, 1))))
+    print("operation.weight", operation.weight)
 
   return operations
 
@@ -602,14 +605,14 @@ def run_value_search(
     print('Warning: for now, value search only uses a single example.')
 
   start_time = timeit.default_timer()
-
+  print("benchmark-name:", benchmark.name)
   operations = get_reweighted_operations(
       benchmark,
       settings,
       description_handler=description_handler,
       tensor_model=tensor_model,
       tensor_config=tensor_config)
-
+  print("operations-computed:", operations)
   solutions, value_set, values_by_weight, statistics = _find_solutions(
       benchmark=benchmark,
       operations=operations,

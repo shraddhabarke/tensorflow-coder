@@ -32,7 +32,7 @@ class Settings(object):
         '2020/08/26')
 
     # Time limit in seconds.
-    self.timeout = 60
+    self.timeout = 5
 
     # Maximum number of solutions to search for.
     self.max_solutions = 1
