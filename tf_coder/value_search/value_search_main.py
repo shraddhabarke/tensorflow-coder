@@ -105,7 +105,7 @@ def run_on_all_benchmarks(settings, description_handler, json_output,
 
   if benchmark_name == 'ALL':
     # Only run on benchmarks from these important modules.
-    modules = [google_benchmarks]
+    modules = [google_benchmarks, stackoverflow_benchmarks]
   else:
     # Allow searching by name among even more benchmark modules.
     modules = None
