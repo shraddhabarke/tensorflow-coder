@@ -578,7 +578,7 @@ def get_reweighted_operations(
   for operation in operations:
     op_weight = task["costs"]["Tensor-Operations"].get(operation.name, 0)
     operation.weight = op_weight
-    print("ops:", operation.weight)
+    print("ops:", operation.name, operation.weight)
   return operations
 
 
@@ -621,7 +621,6 @@ def run_value_search(
       description_handler=description_handler,
       tensor_model=tensor_model,
       tensor_config=tensor_config)
-  print("operations-computed:", operations)
   solutions, value_set, values_by_weight, statistics = _find_solutions(
       benchmark=benchmark,
       operations=operations,
