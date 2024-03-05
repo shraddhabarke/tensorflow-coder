@@ -552,6 +552,7 @@ def get_reweighted_operations(
     # Only for experiments in the PLDI paper.
     for operation in operations:
       operation.weight = 1
+      print("operation:", operation, operation.weight)
     return operations
 
   multipliers = {}
@@ -566,6 +567,7 @@ def get_reweighted_operations(
                                                 tensor_config, settings))
   print("multipliers:", multipliers)
   for operation in operations:
+    # todo
     operation.weight = max(
         1, int(round(operation.weight * multipliers.get(operation.name, 1))))
     print("operation.weight", operation.weight)
