@@ -580,6 +580,7 @@ def get_reweighted_operations(
   for operation in operations:
     op_weight = task["costs"]["Tensor-Operations"].get(operation.name, 0)
     operation.weight = op_weight
+    print("ops:", operation.weight)
   return operations
 
 
