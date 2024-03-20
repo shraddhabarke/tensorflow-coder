@@ -26,7 +26,7 @@ import math
 import tensorflow as tf
 from tf_coder.benchmarks import benchmark
 
-"""
+
 def stackoverflow_01():
   examples = [
       benchmark.Example(
@@ -735,7 +735,7 @@ def stackoverflow_29():
                              source=source,
                              name='stackoverflow_29')
 
-
+"""
 def stackoverflow_30():
   examples = [
       benchmark.Example(
@@ -759,7 +759,7 @@ def stackoverflow_30():
                              target_program=target_program,
                              source=source,
                              name='stackoverflow_30')
-"""
+
 
 def stackoverflow_31():
   examples = [
@@ -1253,7 +1253,7 @@ def stackoverflow_50():
 # parts of it will lead to a state where the benchmark is half-correct, but not
 # obviously so. Copy this template instead when creating new benchmarks.
 """
-
+"""
 def stackoverflow_NUMBER():
   examples = [
       benchmark.Example(
