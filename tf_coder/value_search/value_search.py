@@ -67,6 +67,7 @@ def read_json_file(file_path):
 
 def find_task_by_id(tasks, task_id):
     for task in tasks:
+        print(task['name'])
         if task['name'] == task_id:
             return task
     return None

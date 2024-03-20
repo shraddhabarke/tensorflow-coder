@@ -105,7 +105,7 @@ def run_on_all_benchmarks(settings, description_handler, json_output,
 
   if benchmark_name == 'ALL':
     # Only run on benchmarks from these important modules.
-    modules = [google_benchmarks, stackoverflow_benchmarks]
+    modules = [stackoverflow_benchmarks]
   else:
     # Allow searching by name among even more benchmark modules.
     modules = None
@@ -181,7 +181,7 @@ def run_on_all_benchmarks(settings, description_handler, json_output,
   print()
 
   #if json_output and benchmark_name == 'ALL':
-  with open("tfcoder_results.json", 'w') as json_file:
+  with open("tfcoder_results1.json", 'w') as json_file:
     json.dump(results_json, json_file,
               indent=4, sort_keys=True, separators=(',', ': '))
     json_file.write('\n')
