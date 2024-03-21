@@ -26,7 +26,7 @@ import math
 import tensorflow as tf
 from tf_coder.benchmarks import benchmark
 
-"""
+
 def stackoverflow_01():
   examples = [
       benchmark.Example(
@@ -1252,7 +1252,7 @@ def stackoverflow_50():
 # A template for easy copy/pasting. Copying an existing benchmark and replacing
 # parts of it will lead to a state where the benchmark is half-correct, but not
 # obviously so. Copy this template instead when creating new benchmarks.
-"""
+
 """
 def stackoverflow_NUMBER():
   examples = [
