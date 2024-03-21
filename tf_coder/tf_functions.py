@@ -37,13 +37,13 @@ FunctionInfo = collections.namedtuple(
 PROVIDED_CONSTANT_WEIGHT = 2
 
 # Ubiquitous constants: 0, 1, -1.
-COMMON_CONSTANT_WEIGHT = 3
+COMMON_CONSTANT_WEIGHT = 7
 
 # A tf.constant() wrapper around an input primitive.
-PRIMITIVE_INPUT_AS_TENSOR_WEIGHT = 3
+PRIMITIVE_INPUT_AS_TENSOR_WEIGHT = 7
 
 # Int constants meant to be axis values, chosen based on input tensor ranks.
-AXIS_CONSTANT_WEIGHT = 5
+AXIS_CONSTANT_WEIGHT = 7
 
 # Int constants obtained from input/output tensor shapes.
 SHAPE_CONSTANT_WEIGHT = 7
@@ -56,10 +56,10 @@ INPUT_VARIABLE_WEIGHT = 3
 
 # DTypes with weights to add to the pool of constants.
 CONSTANT_DTYPES_AND_WEIGHTS = collections.OrderedDict([
-    (tf.int32, 3),
-    (tf.float32, 3),
-    (tf.bool, 3),
-    (tf.int64, 3),
+    (tf.int32, 7),
+    (tf.float32, 7),
+    (tf.bool, 7),
+    (tf.int64, 7),
 ])
 ###############################################################################################
 # Used in value search for custom cast logic.
