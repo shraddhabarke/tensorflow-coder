@@ -32,35 +32,36 @@ FunctionInfo = collections.namedtuple(
 
 # Weights for leaf nodes in the AST.
 
+
 # Constants given by the user.
-PROVIDED_CONSTANT_WEIGHT = 7
+PROVIDED_CONSTANT_WEIGHT = 2
 
 # Ubiquitous constants: 0, 1, -1.
-COMMON_CONSTANT_WEIGHT = 8
+COMMON_CONSTANT_WEIGHT = 3
 
 # A tf.constant() wrapper around an input primitive.
-PRIMITIVE_INPUT_AS_TENSOR_WEIGHT = 9
+PRIMITIVE_INPUT_AS_TENSOR_WEIGHT = 3
 
 # Int constants meant to be axis values, chosen based on input tensor ranks.
-AXIS_CONSTANT_WEIGHT = 14
+AXIS_CONSTANT_WEIGHT = 5
 
 # Int constants obtained from input/output tensor shapes.
-SHAPE_CONSTANT_WEIGHT = 24
+SHAPE_CONSTANT_WEIGHT = 7
 
 # Weight of constructing a tuple with the output shape.
-OUTPUT_SHAPE_TUPLE_WEIGHT = 32
+OUTPUT_SHAPE_TUPLE_WEIGHT = 7
 
 # Input variable nodes (in1, in2, etc.).
-INPUT_VARIABLE_WEIGHT = 8
+INPUT_VARIABLE_WEIGHT = 3
 
 # DTypes with weights to add to the pool of constants.
 CONSTANT_DTYPES_AND_WEIGHTS = collections.OrderedDict([
-    (tf.int32, 8),
-    (tf.float32, 8),
-    (tf.bool, 8),
-    (tf.int64, 16),
+    (tf.int32, 3),
+    (tf.float32, 3),
+    (tf.bool, 3),
+    (tf.int64, 3),
 ])
-
+###############################################################################################
 # Used in value search for custom cast logic.
 CAST_OPERATION_NAME = 'tf.cast(x, dtype)'
 
