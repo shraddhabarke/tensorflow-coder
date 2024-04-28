@@ -547,7 +547,7 @@ def get_reweighted_operations(
 ) -> List[operation_base.Operation]:
   """Returns a list of operations with correct weights for the problem."""
   print("benchmark-name:", benchmark.name)
-  tasks = read_json_file("output_modified_tfcoder.json")
+  tasks = read_json_file("output_modified_tfcoder_pcfg1.json")
   task = find_task_by_id(tasks, benchmark.name)
   include_sparse_operations = (
       not settings.operations.limit_sparse_operations or
@@ -578,7 +578,7 @@ def get_reweighted_operations(
                                                 tensor_config, settings))
   for operation in operations:
     op_weight = task["costs"]["Tensor-Operations"].get(operation.name, 0)
-    operation.weight = op_weight
+    operation.weight = op_weight # todo: change here!
     print("ops:", operation.name, operation.weight)
   return operations
 
