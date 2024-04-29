@@ -580,6 +580,18 @@ def get_reweighted_operations(
     op_weight = task["costs"]["Tensor-Operations"].get(operation.name, 0)
     operation.weight = op_weight # todo: change here!
     print("ops:", operation.name, operation.weight)
+  tf_functions.PROVIDED_CONSTANT_WEIGHT = task["costs"]["Tensor-Operations"]["PROVIDED_CONSTANT_WEIGHT"]
+  tf_functions.COMMON_CONSTANT_WEIGHT = task["costs"]["Tensor-Operations"]["COMMON_CONSTANT_WEIGHT"]
+  tf_functions.PRIMITIVE_INPUT_AS_TENSOR_WEIGHT = task["costs"]["Tensor-Operations"]["PRIMITIVE_INPUT_AS_TENSOR_WEIGHT"]
+  tf_functions.INPUT_VARIABLE_WEIGHT = task["costs"]["Tensor-Operations"]["INPUT_VARIABLE_WEIGHT"]
+  tf_functions.AXIS_CONSTANT_WEIGHT = task["costs"]["Tensor-Operations"]["AXIS_CONSTANT_WEIGHT"]
+  tf_functions.SHAPE_CONSTANT_WEIGHT = task["costs"]["Tensor-Operations"]["SHAPE_CONSTANT_WEIGHT"]
+  tf_functions.OUTPUT_SHAPE_TUPLE_WEIGHT = task["costs"]["Tensor-Operations"]["OUTPUT_SHAPE_TUPLE_WEIGHT"]
+  tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.int32] = task["costs"]["Tensor-Operations"]["CONSTANT_DTYPES_AND_WEIGHTS[tf.int32]"]
+  tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.float32] = task["costs"]["Tensor-Operations"]["CONSTANT_DTYPES_AND_WEIGHTS[tf.float32]"]
+  tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.bool] = task["costs"]["Tensor-Operations"]["CONSTANT_DTYPES_AND_WEIGHTS[tf.bool]"]
+  tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.int64] = task["costs"]["Tensor-Operations"]["CONSTANT_DTYPES_AND_WEIGHTS[tf.int64]"]
+  print("tf_functions.PROVIDED_CONSTANT_WEIGHT:", tf_functions.PROVIDED_CONSTANT_WEIGHT)
   return operations
 
 
