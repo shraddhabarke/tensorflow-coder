@@ -181,7 +181,7 @@ def run_on_all_benchmarks(settings, description_handler, json_output,
   print()
 
   #if json_output and benchmark_name == 'ALL':
-  with open("tfcoder_results1.json", 'w') as json_file:
+  with open("tfcoder_results2.json", 'w') as json_file:
     json.dump(results_json, json_file,
               indent=4, sort_keys=True, separators=(',', ': '))
     json_file.write('\n')

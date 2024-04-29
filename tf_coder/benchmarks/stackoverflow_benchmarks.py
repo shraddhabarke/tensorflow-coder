@@ -735,7 +735,7 @@ def stackoverflow_29():
                              source=source,
                              name='stackoverflow_29')
 
-"""
+#"""
 def stackoverflow_30():
   examples = [
       benchmark.Example(
@@ -760,7 +760,7 @@ def stackoverflow_30():
                              source=source,
                              name='stackoverflow_30')
 
-"""
+#"""
 def stackoverflow_31():
   examples = [
       benchmark.Example(
