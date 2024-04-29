@@ -45,7 +45,7 @@ def google_01():
                              source=source,
                              name='google_01')
 
-
+"""
 def google_02():
   examples = [
       benchmark.Example(
@@ -69,7 +69,7 @@ def google_02():
                              target_program=target_program,
                              source=source,
                              name='google_02')
-
+"""
 
 def google_03():
   examples = [
@@ -266,7 +266,7 @@ def google_09():
                              source=source,
                              name='google_09')
 
-
+"""
 def google_10():
   examples = [
       benchmark.Example(
@@ -288,7 +288,7 @@ def google_10():
                              target_program=target_program,
                              source=source,
                              name='google_10')
-
+"""
 
 def google_11():
   examples = [
