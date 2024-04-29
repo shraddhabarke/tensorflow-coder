@@ -592,6 +592,16 @@ def get_reweighted_operations(
   tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.bool] = task["costs"]["Tensor-Operations"]["CONSTANT_DTYPES_AND_WEIGHTS[tf.bool]"]
   tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.int64] = task["costs"]["Tensor-Operations"]["CONSTANT_DTYPES_AND_WEIGHTS[tf.int64]"]
   print("tf_functions.PROVIDED_CONSTANT_WEIGHT:", tf_functions.PROVIDED_CONSTANT_WEIGHT)
+  print("tf_functions.COMMON_CONSTANT_WEIGHT:", tf_functions.COMMON_CONSTANT_WEIGHT)
+  print("tf_functions.PRIMITIVE_INPUT_AS_TENSOR_WEIGHT:", tf_functions.PRIMITIVE_INPUT_AS_TENSOR_WEIGHT)
+  print("tf_functions.INPUT_VARIABLE_WEIGHT:", tf_functions.INPUT_VARIABLE_WEIGHT)
+  print("tf_functions.AXIS_CONSTANT_WEIGHT:", tf_functions.AXIS_CONSTANT_WEIGHT)
+  print("tf_functions.SHAPE_CONSTANT_WEIGHT:", tf_functions.SHAPE_CONSTANT_WEIGHT)
+  print("tf_functions.OUTPUT_SHAPE_TUPLE_WEIGHT:", tf_functions.OUTPUT_SHAPE_TUPLE_WEIGHT)
+  print("tf.int32:", tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.int32])
+  print("tf.float32:", tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.float32])
+  print("tf.bool:", tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.bool])
+  print("tf.int64:", tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.int64])
   return operations
 
 
