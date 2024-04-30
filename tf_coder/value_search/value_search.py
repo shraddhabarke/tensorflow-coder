@@ -547,7 +547,7 @@ def get_reweighted_operations(
 ) -> List[operation_base.Operation]:
   """Returns a list of operations with correct weights for the problem."""
   print("benchmark-name:", benchmark.name)
-  tasks = read_json_file("output_modified_tfcoder_pcfg2_attempt.json")
+  tasks = read_json_file("output_modified_tfcoder_pcfg1_attempt.json")
   task = find_task_by_id(tasks, benchmark.name)
   include_sparse_operations = (
       not settings.operations.limit_sparse_operations or
