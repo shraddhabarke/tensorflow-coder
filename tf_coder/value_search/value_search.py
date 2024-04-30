@@ -580,7 +580,7 @@ def get_reweighted_operations(
     op_weight = task["costs"]["Tensor-Operations"].get(operation.name, 0)
     operation.weight = op_weight # todo: change here!
     print("ops:", operation.name, operation.weight)
-  tf_functions.PROVIDED_CONSTANT_WEIGHT = 2 #task["costs"]["Tensor-Operations"]["PROVIDED_CONSTANT_WEIGHT"]
+  tf_functions.PROVIDED_CONSTANT_WEIGHT = task["costs"]["Tensor-Operations"]["PROVIDED_CONSTANT_WEIGHT"]
   tf_functions.COMMON_CONSTANT_WEIGHT = task["costs"]["Tensor-Operations"]["COMMON_CONSTANT_WEIGHT"]
   tf_functions.PRIMITIVE_INPUT_AS_TENSOR_WEIGHT = task["costs"]["Tensor-Operations"]["PRIMITIVE_INPUT_AS_TENSOR_WEIGHT"]
   tf_functions.INPUT_VARIABLE_WEIGHT = task["costs"]["Tensor-Operations"]["INPUT_VARIABLE_WEIGHT"]
