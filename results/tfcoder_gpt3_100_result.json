@@ -1,0 +1,838 @@
+{
+    "benchmark_name": "ALL",
+    "notes": "",
+    "num_benchmarks": 69,
+    "num_solved": 67,
+    "results": [
+        {
+            "name": "stackoverflow_01",
+            "operations": [
+                "tf.transpose(a)",
+                "tf.stack(values, axis)",
+                "PairCreationOperation"
+            ],
+            "solution": "tf.transpose(tf.stack((in1, in1), axis=0))",
+            "solution_weight": 24,
+            "solved": true,
+            "time": 0.5830674580000021
+        },
+        {
+            "name": "stackoverflow_02",
+            "operations": [
+                "tf.minimum(x, y)",
+                "tf.abs(x)"
+            ],
+            "solution": "tf.minimum(in1, tf.abs(-1))",
+            "solution_weight": 16,
+            "solved": true,
+            "time": 0.09012154199999856
+        },
+        {
+            "name": "stackoverflow_03",
+            "operations": null,
+            "solution": null,
+            "solution_weight": null,
+            "solved": false,
+            "time": null
+        },
+        {
+            "name": "stackoverflow_04",
+            "operations": [
+                "tf.gather_nd(params, indices)",
+                "tf.stack(values, axis)",
+                "PairCreationOperation"
+            ],
+            "solution": "tf.gather_nd(in1, tf.stack((in2, in3), axis=-1))",
+            "solution_weight": 31,
+            "solved": true,
+            "time": 11.865386130999923
+        },
+        {
+            "name": "stackoverflow_05",
+            "operations": [
+                "tf.tensordot(a, b, axes)"
+            ],
+            "solution": "tf.tensordot(in1, in2, 1)",
+            "solution_weight": 7,
+            "solved": true,
+            "time": 0.11116866600002595
+        },
+        {
+            "name": "stackoverflow_06",
+            "operations": [
+                "tf.cast(x, dtype)",
+                "tf.equal(x, y)",
+                "tf.expand_dims(input, axis)"
+            ],
+            "solution": "tf.cast(tf.equal(in1, tf.expand_dims(in1, 1)), tf.float32)",
+            "solution_weight": 11,
+            "solved": true,
+            "time": 0.062255417000073976
+        },
+        {
+            "name": "stackoverflow_08",
+            "operations": [
+                "tf.boolean_mask(tensor, mask)",
+                "tf.greater(x, y)",
+                "tf.ones_like(input)"
+            ],
+            "solution": "tf.boolean_mask(in2, tf.greater(in1, tf.ones_like(in1)))",
+            "solution_weight": 21,
+            "solved": true,
+            "time": 0.28281220799999574
+        },
+        {
+            "name": "stackoverflow_09",
+            "operations": [
+                "IndexingOperation",
+                "tf.unique_with_counts(x)"
+            ],
+            "solution": "tf.unique_with_counts(in1)[1]",
+            "solution_weight": 15,
+            "solved": true,
+            "time": 0.0795212079999601
+        },
+        {
+            "name": "stackoverflow_10",
+            "operations": [
+                "tf.matmul(a, b)",
+                "tf.expand_dims(input, axis)",
+                "tf.expand_dims(input, axis)"
+            ],
+            "solution": "tf.matmul(tf.expand_dims(in1, -1), tf.expand_dims(in2, 1))",
+            "solution_weight": 21,
+            "solved": true,
+            "time": 0.8310594590000164
+        },
+        {
+            "name": "stackoverflow_11",
+            "operations": [
+                "tf.math.bincount(arr)"
+            ],
+            "solution": "tf.math.bincount(in1)",
+            "solution_weight": 4,
+            "solved": true,
+            "time": 0.055108582999991995
+        },
+        {
+            "name": "stackoverflow_12",
+            "operations": [
+                "tf.gather(params, indices, axis, batch_dims)",
+                "tf.argmin(input, axis)"
+            ],
+            "solution": "tf.gather(in1, tf.argmin(in1, axis=-1), axis=-1, batch_dims=0)",
+            "solution_weight": 35,
+            "solved": true,
+            "time": 3.0960529600000655
+        },
+        {
+            "name": "stackoverflow_13",
+            "operations": [
+                "tf.tensordot(a, b, axes)",
+                "PairCreationOperation"
+            ],
+            "solution": "tf.tensordot(in1, in2, (1, 1))",
+            "solution_weight": 19,
+            "solved": true,
+            "time": 0.590590499999962
+        },
+        {
+            "name": "stackoverflow_14",
+            "operations": [
+                "tf.reduce_any(input_tensor, axis)"
+            ],
+            "solution": "tf.reduce_any(in1, axis=-1)",
+            "solution_weight": 6,
+            "solved": true,
+            "time": 0.05820537499994316
+        },
+        {
+            "name": "stackoverflow_15",
+            "operations": [
+                "tf.where(condition, x, y)",
+                "tf.equal(x, y)",
+                "tf.ones_like(input)",
+                "tf.zeros_like(input)"
+            ],
+            "solution": "tf.where(tf.equal(in1, tf.ones_like(in1)), x=tf.zeros_like(in1), y=in1)",
+            "solution_weight": 28,
+            "solved": true,
+            "time": 0.5570705420000195
+        },
+        {
+            "name": "stackoverflow_16",
+            "operations": [
+                "tf.multiply(x, y)",
+                "tf.expand_dims(input, axis)"
+            ],
+            "solution": "tf.multiply(in1, tf.expand_dims(in2, 1))",
+            "solution_weight": 12,
+            "solved": true,
+            "time": 0.0627215829999841
+        },
+        {
+            "name": "stackoverflow_17",
+            "operations": [
+                "tf.stack(values, axis)",
+                "PairCreationOperation"
+            ],
+            "solution": "tf.stack((in1, in1), axis=1)",
+            "solution_weight": 23,
+            "solved": true,
+            "time": 0.5886962499999981
+        },
+        {
+            "name": "stackoverflow_18",
+            "operations": [
+                "tf.add(x, y)",
+                "tf.matmul(a, b)"
+            ],
+            "solution": "tf.add(in3, tf.matmul(in1, in2))",
+            "solution_weight": 11,
+            "solved": true,
+            "time": 0.0666027080000049
+        },
+        {
+            "name": "stackoverflow_19",
+            "operations": [
+                "tf.gather(params, indices)",
+                "tf.argsort(values, axis, stable=True)",
+                "tf.reduce_prod(input_tensor, axis)",
+                "tf.math.cumsum(x, axis)"
+            ],
+            "solution": "tf.gather(in1, tf.argsort(tf.reduce_prod(tf.math.cumsum(in1, axis=1), axis=1), axis=0, stable=True))",
+            "solution_weight": 41,
+            "solved": true,
+            "time": 230.20849485500003
+        },
+        {
+            "name": "stackoverflow_20",
+            "operations": [
+                "tf.cast(x, dtype)",
+                "tf.one_hot(indices, depth)",
+                "tf.argmax(input, axis)"
+            ],
+            "solution": "tf.cast(tf.one_hot(tf.argmax(in1, axis=1), 3), tf.int32)",
+            "solution_weight": 19,
+            "solved": true,
+            "time": 0.22509020900008636
+        },
+        {
+            "name": "stackoverflow_21",
+            "operations": [
+                "tf.gather(params, indices, axis, batch_dims)"
+            ],
+            "solution": "tf.gather(in2, in1, axis=1, batch_dims=1)",
+            "solution_weight": 15,
+            "solved": true,
+            "time": 0.1575765009999941
+        },
+        {
+            "name": "stackoverflow_22",
+            "operations": [
+                "tf.reduce_sum(input_tensor, axis)",
+                "tf.repeat(input, repeats, axis)"
+            ],
+            "solution": "tf.reduce_sum(tf.repeat(in2, in1, axis=0), axis=0)",
+            "solution_weight": 25,
+            "solved": true,
+            "time": 2.2406615010000905
+        },
+        {
+            "name": "stackoverflow_23",
+            "operations": [
+                "tf.cast(x, dtype)",
+                "tf.reduce_max(input_tensor, axis)",
+                "tf.one_hot(indices, depth)"
+            ],
+            "solution": "tf.cast(tf.reduce_max(tf.one_hot(in1, 9), axis=1), tf.int32)",
+            "solution_weight": 26,
+            "solved": true,
+            "time": 1.7573555010000064
+        },
+        {
+            "name": "stackoverflow_24",
+            "operations": [
+                "tf.where(condition, x, y)",
+                "tf.equal(x, y)",
+                "tf.divide(x, y)",
+                "tf.divide(x, y)"
+            ],
+            "solution": "tf.where(tf.equal(in2, tf.divide(in2, in1)), x=in1, y=tf.divide(in1, in2))",
+            "solution_weight": 22,
+            "solved": true,
+            "time": 1.2674039169999105
+        },
+        {
+            "name": "stackoverflow_25",
+            "operations": [
+                "tf.tile(input, multiples)",
+                "tf.eye(num_rows)",
+                "PairCreationOperation"
+            ],
+            "solution": "tf.tile(tf.eye(in1), (in2, 1))",
+            "solution_weight": 22,
+            "solved": true,
+            "time": 0.41931112499992196
+        },
+        {
+            "name": "stackoverflow_26",
+            "operations": [
+                "tf.reduce_sum(input_tensor, axis)",
+                "tf.reduce_sum(input_tensor, axis)"
+            ],
+            "solution": "tf.reduce_sum(tf.reduce_sum(in1, axis=1), axis=1)",
+            "solution_weight": 22,
+            "solved": true,
+            "time": 0.5090388339999663
+        },
+        {
+            "name": "stackoverflow_27",
+            "operations": [
+                "tf.cast(x, dtype)",
+                "tf.math.count_nonzero(input, axis)",
+                "tf.one_hot(indices, depth)"
+            ],
+            "solution": "tf.cast(tf.math.count_nonzero(tf.one_hot(in1, in2), axis=0), tf.int32)",
+            "solution_weight": 19,
+            "solved": true,
+            "time": 0.3339102090000097
+        },
+        {
+            "name": "stackoverflow_28",
+            "operations": [
+                "tf.squeeze(input)",
+                "tf.gather(params, indices, axis, batch_dims)",
+                "tf.expand_dims(input, axis)"
+            ],
+            "solution": "tf.squeeze(tf.gather(in1, tf.expand_dims(in2, 1), axis=-1, batch_dims=1))",
+            "solution_weight": 33,
+            "solved": true,
+            "time": 24.880896260999975
+        },
+        {
+            "name": "stackoverflow_29",
+            "operations": [
+                "tf.searchsorted(sorted_sequence, values, side='left')"
+            ],
+            "solution": "tf.searchsorted(in1, in2, side='left')",
+            "solution_weight": 11,
+            "solved": true,
+            "time": 0.06933345799996005
+        },
+        {
+            "name": "stackoverflow_30",
+            "operations": [
+                "tf.sqrt(x)",
+                "tf.reduce_sum(input_tensor, axis)",
+                "tf.math.squared_difference(x, y)",
+                "tf.expand_dims(input, axis)"
+            ],
+            "solution": "tf.sqrt(tf.reduce_sum(tf.math.squared_difference(in2, tf.expand_dims(in1, 1)), axis=-1))",
+            "solution_weight": 29,
+            "solved": true,
+            "time": 17.335708757999896
+        },
+        {
+            "name": "stackoverflow_31",
+            "operations": [
+                "tf.reduce_sum(input_tensor)",
+                "tf.math.squared_difference(x, y)",
+                "tf.sparse.to_dense(sp_input)"
+            ],
+            "solution": "tf.reduce_sum(tf.math.squared_difference(in2, tf.sparse.to_dense(in1)))",
+            "solution_weight": 13,
+            "solved": true,
+            "time": 0.08325383299995792
+        },
+        {
+            "name": "stackoverflow_32",
+            "operations": [
+                "tf.tensordot(a, b, axes)",
+                "tf.cast(x, dtype)",
+                "tf.range(start)"
+            ],
+            "solution": "tf.tensordot(in1, tf.cast(tf.range(4), tf.float32), 1)",
+            "solution_weight": 35,
+            "solved": true,
+            "time": 17.824978508000072
+        },
+        {
+            "name": "stackoverflow_33",
+            "operations": [
+                "tf.reduce_min(input_tensor, axis)",
+                "tf.reduce_sum(input_tensor, axis)",
+                "tf.math.squared_difference(x, y)",
+                "tf.expand_dims(input, axis)"
+            ],
+            "solution": "tf.reduce_min(tf.reduce_sum(tf.math.squared_difference(in1, tf.expand_dims(in2, 1)), axis=-1), axis=1)",
+            "solution_weight": 40,
+            "solved": true,
+            "time": 428.711237963
+        },
+        {
+            "name": "stackoverflow_34",
+            "operations": [
+                "tf.tensordot(a, b, axes)"
+            ],
+            "solution": "tf.tensordot(in2, in1, 1)",
+            "solution_weight": 13,
+            "solved": true,
+            "time": 0.10153874999991785
+        },
+        {
+            "name": "stackoverflow_35",
+            "operations": [
+                "tf.add(x, y)",
+                "tf.multiply(x, y)",
+                "tf.expand_dims(input, axis)",
+                "tf.subtract(x, y)"
+            ],
+            "solution": "tf.add(in2, tf.multiply(tf.expand_dims(in3, 1), tf.subtract(in1, in2)))",
+            "solution_weight": 30,
+            "solved": true,
+            "time": 20.906563342000027
+        },
+        {
+            "name": "stackoverflow_36",
+            "operations": [
+                "tf.cast(x, dtype)",
+                "tf.divide(x, y)",
+                "tf.math.cumsum(x, axis)",
+                "tf.ones_like(input)"
+            ],
+            "solution": "tf.cast(tf.divide(in1, tf.math.cumsum(tf.ones_like(in1), axis=0)), tf.float32)",
+            "solution_weight": 31,
+            "solved": true,
+            "time": 2.943989001999853
+        },
+        {
+            "name": "stackoverflow_37",
+            "operations": [
+                "tf.tensordot(a, b, axes)"
+            ],
+            "solution": "tf.tensordot(in1, in2, 1)",
+            "solution_weight": 9,
+            "solved": true,
+            "time": 0.08205262599994967
+        },
+        {
+            "name": "stackoverflow_38",
+            "operations": [
+                "tf.reduce_prod(input_tensor, axis)",
+                "tf.where(condition, x, y)",
+                "tf.cast(x, dtype)",
+                "tf.ones_like(input)"
+            ],
+            "solution": "tf.reduce_prod(tf.where(tf.cast(in2, tf.bool), x=in1, y=tf.ones_like(in1)), axis=1)",
+            "solution_weight": 38,
+            "solved": true,
+            "time": 60.589571694999904
+        },
+        {
+            "name": "stackoverflow_39",
+            "operations": [
+                "tf.square(x)",
+                "tf.where(condition, x, y)",
+                "tf.greater_equal(x, y)",
+                "tf.square(x)",
+                "tf.abs(x)",
+                "tf.zeros_like(input)"
+            ],
+            "solution": "tf.square(tf.where(tf.greater_equal(tf.square(in1), tf.abs(in1)), x=in1, y=tf.zeros_like(in1)))",
+            "solution_weight": 30,
+            "solved": true,
+            "time": 6.698094877999893
+        },
+        {
+            "name": "stackoverflow_40",
+            "operations": [
+                "tf.scatter_nd(indices, updates, shape)"
+            ],
+            "solution": "tf.scatter_nd(in2, in1, (3, 5))",
+            "solution_weight": 14,
+            "solved": true,
+            "time": 0.11245137499986413
+        },
+        {
+            "name": "stackoverflow_41",
+            "operations": [
+                "tf.boolean_mask(tensor, mask)",
+                "tf.not_equal(x, y)",
+                "IndexingOperation",
+                "tf.argsort(values, axis, direction='DESCENDING', stable=True)"
+            ],
+            "solution": "tf.boolean_mask(in1, tf.not_equal(tf.constant(in2), tf.range(10)))",
+            "solution_weight": 34,
+            "solved": true,
+            "time": 12.437495881000132
+        },
+        {
+            "name": "stackoverflow_42",
+            "operations": [
+                "tf.cast(x, dtype)",
+                "tf.equal(x, y)",
+                "tf.reduce_max(input_tensor)"
+            ],
+            "solution": "tf.cast(tf.equal(in1, tf.reduce_max(in1)), tf.int32)",
+            "solution_weight": 10,
+            "solved": true,
+            "time": 0.05844195800000307
+        },
+        {
+            "name": "stackoverflow_43",
+            "operations": [
+                "tf.gather_nd(params, indices, batch_dims)",
+                "tf.transpose(a)",
+                "tf.expand_dims(input, axis)"
+            ],
+            "solution": "tf.gather_nd(tf.transpose(in1), tf.expand_dims(in2, 1), batch_dims=1)",
+            "solution_weight": 33,
+            "solved": true,
+            "time": 34.29329680699993
+        },
+        {
+            "name": "stackoverflow_44",
+            "operations": [
+                "tf.math.segment_sum(data, segment_ids)",
+                "tf.repeat(input, repeats)",
+                "tf.range(start)"
+            ],
+            "solution": "tf.math.segment_sum(in1, tf.repeat(tf.range(4), 2))",
+            "solution_weight": 35,
+            "solved": true,
+            "time": 30.32467718099997
+        },
+        {
+            "name": "stackoverflow_45",
+            "operations": [
+                "tf.where(condition, x, y)",
+                "tf.sequence_mask(lengths)",
+                "tf.reverse(tensor, axis)",
+                "PairCreationOperation"
+            ],
+            "solution": "tf.where(tf.sequence_mask(in2), x=tf.reverse(in1, (0, -1)), y=in1)",
+            "solution_weight": 38,
+            "solved": true,
+            "time": 61.62508932000014
+        },
+        {
+            "name": "stackoverflow_46",
+            "operations": [
+                "tf.repeat(input, repeats)",
+                "tf.range(start)",
+                "IndexingOperation"
+            ],
+            "solution": "tf.repeat(tf.range(in1[0]), in1)",
+            "solution_weight": 17,
+            "solved": true,
+            "time": 0.19407637600011185
+        },
+        {
+            "name": "stackoverflow_47",
+            "operations": [
+                "tf.scatter_nd(indices, updates, shape)",
+                "tf.where(condition)"
+            ],
+            "solution": "tf.scatter_nd(tf.where(in2), in1, (6, 5))",
+            "solution_weight": 30,
+            "solved": true,
+            "time": 3.8426142109999546
+        },
+        {
+            "name": "stackoverflow_48",
+            "operations": [
+                "tf.cast(x, dtype)",
+                "IndexingAxis1Operation",
+                "tf.where(condition)",
+                "tf.equal(x, y)",
+                "tf.expand_dims(input, axis)"
+            ],
+            "solution": "tf.cast(tf.where(tf.equal(in1, tf.expand_dims(in2, 1)))[:, 1], tf.int32)",
+            "solution_weight": 31,
+            "solved": true,
+            "time": 12.009726713999953
+        },
+        {
+            "name": "stackoverflow_49",
+            "operations": [
+                "tf.multiply(x, y)",
+                "tf.expand_dims(input, axis)",
+                "tf.expand_dims(input, axis)",
+                "tf.expand_dims(input, axis)"
+            ],
+            "solution": "tf.multiply(in1, tf.expand_dims(tf.expand_dims(tf.expand_dims(in2, 1), 1), 1))",
+            "solution_weight": 22,
+            "solved": true,
+            "time": 0.5821502090000195
+        },
+        {
+            "name": "stackoverflow_50",
+            "operations": [
+                "tf.cast(x, dtype)",
+                "tf.one_hot(indices, depth)",
+                "tf.repeat(input, repeats)"
+            ],
+            "solution": "tf.cast(tf.one_hot(tf.repeat(in3, in1), in2), tf.int32)",
+            "solution_weight": 18,
+            "solved": true,
+            "time": 0.26978195899982893
+        },
+        {
+            "name": "google_01",
+            "operations": [
+                "tf.cast(x, dtype)",
+                "tf.where(condition)",
+                "tf.sequence_mask(lengths)",
+                "tf.math.bincount(arr)"
+            ],
+            "solution": "tf.cast(tf.where(tf.sequence_mask(tf.math.bincount(in1))), tf.int32)",
+            "solution_weight": 30,
+            "solved": true,
+            "time": 3.044846667999991
+        },
+        {
+            "name": "google_03",
+            "operations": [
+                "IndexingOperation",
+                "tf.sparse.split(sp_input, num_split, axis)"
+            ],
+            "solution": "tf.sparse.split(sp_input=in1, num_split=2, axis=0)[0]",
+            "solution_weight": 26,
+            "solved": true,
+            "time": 1.1414707910000743
+        },
+        {
+            "name": "google_04",
+            "operations": [
+                "tf.reshape(tensor, shape)"
+            ],
+            "solution": "tf.reshape(in1, (4, 3, 2))",
+            "solution_weight": 7,
+            "solved": true,
+            "time": 0.06010254200009513
+        },
+        {
+            "name": "google_05",
+            "operations": [
+                "tf.repeat(input, repeats, axis)",
+                "tf.expand_dims(input, axis)"
+            ],
+            "solution": "tf.repeat(tf.expand_dims(in1, 1), 6, axis=1)",
+            "solution_weight": 20,
+            "solved": true,
+            "time": 0.396541083999864
+        },
+        {
+            "name": "google_06",
+            "operations": [
+                "tf.math.segment_max(data, segment_ids)"
+            ],
+            "solution": "tf.math.segment_max(in2, in1)",
+            "solution_weight": 5,
+            "solved": true,
+            "time": 0.05988454099997398
+        },
+        {
+            "name": "google_07",
+            "operations": null,
+            "solution": null,
+            "solution_weight": null,
+            "solved": false,
+            "time": null
+        },
+        {
+            "name": "google_08",
+            "operations": [
+                "tf.cast(x, dtype)",
+                "tf.sequence_mask(lengths, maxlen)"
+            ],
+            "solution": "tf.cast(tf.sequence_mask(in1, maxlen=5), tf.int32)",
+            "solution_weight": 12,
+            "solved": true,
+            "time": 0.06623345800016978
+        },
+        {
+            "name": "google_09",
+            "operations": [
+                "tf.gather(params, indices)",
+                "tf.argsort(values, axis, stable=True)"
+            ],
+            "solution": "tf.gather(in2, tf.argsort(in1, axis=0, stable=True))",
+            "solution_weight": 17,
+            "solved": true,
+            "time": 0.3180487089998678
+        },
+        {
+            "name": "google_11",
+            "operations": [
+                "tf.cast(x, dtype)",
+                "tf.math.count_nonzero(input, axis)",
+                "tf.clip_by_value(t, clip_value_min, clip_value_max)"
+            ],
+            "solution": "tf.cast(tf.math.count_nonzero(tf.clip_by_value(in1, 0, 1), axis=1), tf.int32)",
+            "solution_weight": 27,
+            "solved": true,
+            "time": 2.1756337920000988
+        },
+        {
+            "name": "google_12",
+            "operations": [
+                "tf.cast(x, dtype)",
+                "tf.greater_equal(x, y)",
+                "tf.square(x)"
+            ],
+            "solution": "tf.cast(tf.greater_equal(in1, tf.square(in1)), tf.int32)",
+            "solution_weight": 17,
+            "solved": true,
+            "time": 0.11458379199984847
+        },
+        {
+            "name": "google_13",
+            "operations": [
+                "tf.concat(values, axis)",
+                "PairCreationOperation"
+            ],
+            "solution": "tf.concat((in1, in2), 1)",
+            "solution_weight": 15,
+            "solved": true,
+            "time": 0.1252797920001285
+        },
+        {
+            "name": "google_14",
+            "operations": [
+                "tf.roll(input, shift, axis)"
+            ],
+            "solution": "tf.roll(in1, 1, 1)",
+            "solution_weight": 8,
+            "solved": true,
+            "time": 0.057529875000000175
+        },
+        {
+            "name": "google_15",
+            "operations": [
+                "tf.pad(tensor, paddings, mode='CONSTANT')",
+                "tf.tensordot(a, b, axes)",
+                "tf.math.bincount(arr)",
+                "tf.math.bincount(arr)"
+            ],
+            "solution": "tf.pad(in1, tf.tensordot(tf.math.bincount(1), tf.math.bincount(1), 0), mode='CONSTANT')",
+            "solution_weight": 39,
+            "solved": true,
+            "time": 31.299356930999693
+        },
+        {
+            "name": "google_16",
+            "operations": [
+                "tf.repeat(input, repeats)"
+            ],
+            "solution": "tf.repeat(in1, in2)",
+            "solution_weight": 4,
+            "solved": true,
+            "time": 0.06692512499967052
+        },
+        {
+            "name": "google_17",
+            "operations": [
+                "tf.where(condition, x, y)",
+                "tf.multiply(x, y)",
+                "tf.constant(value)"
+            ],
+            "solution": "tf.where(in1, x=in2, y=tf.multiply(in2, tf.constant(-10)))",
+            "solution_weight": 27,
+            "solved": true,
+            "time": 1.1083906669996395
+        },
+        {
+            "name": "google_18",
+            "operations": [
+                "tf.gather(params, indices)",
+                "tf.math.unsorted_segment_sum(data, segment_ids, num_segments)",
+                "tf.reduce_max(input_tensor)"
+            ],
+            "solution": "tf.gather(tf.math.unsorted_segment_sum(in1, in2, tf.reduce_max(in1)), in2)",
+            "solution_weight": 18,
+            "solved": true,
+            "time": 0.1766318750001119
+        },
+        {
+            "name": "google_19",
+            "operations": [
+                "tf.gather(params, indices, axis, batch_dims)",
+                "tf.argsort(values, axis, stable=True)"
+            ],
+            "solution": "tf.gather(in1, tf.argsort(in2, axis=1, stable=True), axis=1, batch_dims=1)",
+            "solution_weight": 30,
+            "solved": true,
+            "time": 6.118851960000029
+        },
+        {
+            "name": "google_20",
+            "operations": [
+                "tf.argsort(values, axis, stable=True)",
+                "tf.argsort(values, axis, stable=True)"
+            ],
+            "solution": "tf.argsort(tf.argsort(in1, axis=0, stable=True), axis=0, stable=True)",
+            "solution_weight": 18,
+            "solved": true,
+            "time": 0.10879704199987827
+        },
+        {
+            "name": "google_21",
+            "operations": [
+                "tf.tensor_scatter_nd_update(tensor, indices, updates)",
+                "tf.repeat(input, repeats)"
+            ],
+            "solution": "tf.tensor_scatter_nd_update(tensor, indices, tf.repeat(updates, 1))",
+            "solution_weight": 23,
+            "solved": true,
+            "time": 0.5937649170000441
+        },
+        {
+            "name": "google_22",
+            "operations": [
+                "tf.reshape(tensor, shape)",
+                "tf.concat(values, axis)",
+                "PairCreationOperation",
+                "tf.argsort(values, axis, stable=True)"
+            ],
+            "solution": "tf.reshape(tf.concat((tf.argsort(in1, axis=0, stable=True), in1), 1), (6, 2))",
+            "solution_weight": 44,
+            "solved": true,
+            "time": 558.795018839
+        }
+    ],
+    "settings": {
+        "algorithm_version": "Value search, TF-IDF (k=5, min_score=0.15), tensor features model with F_1 loss and max weighting, 2020/08/26",
+        "description_handler_name": "tfidf_5_0.15",
+        "max_extra_solutions_time": 10,
+        "max_solutions": 1,
+        "max_weight": 300,
+        "only_minimal_solutions": true,
+        "operations.limit_sparse_operations": true,
+        "paper_experiments.skip_filtering": false,
+        "paper_experiments.uniform_weights": false,
+        "printing.all_apply": false,
+        "printing.bad_solutions": false,
+        "printing.deprioritized_operations": false,
+        "printing.prioritized_operations": false,
+        "printing.progress": false,
+        "printing.statistics": false,
+        "printing.statistics_sort_by_time": true,
+        "printing.tensor_size_warnings": false,
+        "printing.verbose": false,
+        "require_all_inputs_used": true,
+        "require_one_input_used": true,
+        "tensor_model.checkpoint_path": "/usr/local/lib/python3.10/dist-packages/tensorflow_coder-0.0.5-py3.10.egg/tf_coder/models/trained_model/ckpt-1172",
+        "tensor_model.config_path": "/usr/local/lib/python3.10/dist-packages/tensorflow_coder-0.0.5-py3.10.egg/tf_coder/models/trained_model/config.json",
+        "tensor_model.deprioritize_multiplier": 1.25,
+        "tensor_model.deprioritize_threshold": -1,
+        "tensor_model.max_deprioritized": 100,
+        "tensor_model.prioritize_multiplier": 0.75,
+        "tensor_model.prioritize_threshold": 0.5,
+        "timeout": 600
+    },
+    "solve_time_geometric_mean": 0.9046835199163589,
+    "solve_time_mean": 25.78961487622386,
+    "solve_time_total": 1727.9041967069984
+}
