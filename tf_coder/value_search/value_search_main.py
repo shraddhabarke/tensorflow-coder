@@ -181,7 +181,7 @@ def run_on_all_benchmarks(settings, description_handler, json_output,
   print()
 
   #if json_output and benchmark_name == 'ALL':
-  with open("deepseek_strict_10_res.json", 'w') as json_file:
+  with open("deepseek_strict_50_res.json", 'w') as json_file:
     json.dump(results_json, json_file,
               indent=4, sort_keys=True, separators=(',', ': '))
     json_file.write('\n')
