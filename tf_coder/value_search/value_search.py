@@ -576,7 +576,8 @@ def get_reweighted_operations(
         multipliers,
         operation_multipliers_from_tensor_model(benchmark, tensor_model,
                                                 tensor_config, settings))
-  for operation in operations:
+  for operation in task["ops_list"]:
+    print("operation:", operation, operation in task["ops_list"])
     op_weight = 1 if operation in task["ops_list"] else 0 #task["costs"]["Tensor-Operations"].get(operation.name, 0)
     operation.weight = op_weight
     print("ops:", operation.name, operation.weight)
@@ -613,7 +614,7 @@ def get_reweighted_operations(
   print("tf.float32:", tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.float32])
   print("tf.bool:", tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.bool])
   print("tf.int64:", tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.int64])
-  return operations
+  return task["ops_list"]
 
 
 def run_value_search(
