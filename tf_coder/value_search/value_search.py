@@ -578,8 +578,8 @@ def get_reweighted_operations(
                                                 tensor_config, settings))
   new_operations = []
   for operation in operations:
-    print("operation:", operation, operation in task["ops_list"])
-    op_weight = 1 if operation in task["ops_list"] else 0 #task["costs"]["Tensor-Operations"].get(operation.name, 0)
+    print("operation:", operation, operation.name in task["ops_list"])
+    op_weight = 1 if operation.name in task["ops_list"] else 0 #task["costs"]["Tensor-Operations"].get(operation.name, 0)
     operation.weight = op_weight
     new_operations.append(operation)
     print("ops:", operation.name, operation.weight)
