@@ -582,27 +582,27 @@ def get_reweighted_operations(
     if operation.name in task["ops_list"]:
       operation.weight = 1
       new_operations.append(operation)
-  tf_functions.PROVIDED_CONSTANT_WEIGHT = 1 if "PROVIDED_CONSTANT_WEIGHT" in task["ops_list"] else 0
+  tf_functions.PROVIDED_CONSTANT_WEIGHT = 1 if "PROVIDED_CONSTANT_WEIGHT" in task["ops_list"] else 1000000000
   #tf_functions.PROVIDED_CONSTANT_WEIGHT = task["costs"]["Tensor-Operations"]["PROVIDED_CONSTANT_WEIGHT"]
-  tf_functions.COMMON_CONSTANT_WEIGHT = 1 if "COMMON_CONSTANT_WEIGHT" in task["ops_list"] else 0
+  tf_functions.COMMON_CONSTANT_WEIGHT = 1 if "COMMON_CONSTANT_WEIGHT" in task["ops_list"] else 1000000000
   #tf_functions.COMMON_CONSTANT_WEIGHT = task["costs"]["Tensor-Operations"]["COMMON_CONSTANT_WEIGHT"]
-  tf_functions.PRIMITIVE_INPUT_AS_TENSOR_WEIGHT = 1 if "PRIMITIVE_INPUT_AS_TENSOR_WEIGHT" in task["ops_list"] else 0
+  tf_functions.PRIMITIVE_INPUT_AS_TENSOR_WEIGHT = 1 if "PRIMITIVE_INPUT_AS_TENSOR_WEIGHT" in task["ops_list"] else 1000000000
   #tf_functions.PRIMITIVE_INPUT_AS_TENSOR_WEIGHT = task["costs"]["Tensor-Operations"]["PRIMITIVE_INPUT_AS_TENSOR_WEIGHT"]
-  tf_functions.INPUT_VARIABLE_WEIGHT = 1 if "INPUT_VARIABLE_WEIGHT" in task["ops_list"] else 0
+  tf_functions.INPUT_VARIABLE_WEIGHT = 1 if "INPUT_VARIABLE_WEIGHT" in task["ops_list"] else 1000000000
   #tf_functions.INPUT_VARIABLE_WEIGHT = task["costs"]["Tensor-Operations"]["INPUT_VARIABLE_WEIGHT"]
-  tf_functions.AXIS_CONSTANT_WEIGHT = 1 if "AXIS_CONSTANT_WEIGHT" in task["ops_list"] else 0
+  tf_functions.AXIS_CONSTANT_WEIGHT = 1 if "AXIS_CONSTANT_WEIGHT" in task["ops_list"] else 1000000000
   #tf_functions.AXIS_CONSTANT_WEIGHT = task["costs"]["Tensor-Operations"]["AXIS_CONSTANT_WEIGHT"]
-  tf_functions.SHAPE_CONSTANT_WEIGHT = 1 if "SHAPE_CONSTANT_WEIGHT" in task["ops_list"] else 0
+  tf_functions.SHAPE_CONSTANT_WEIGHT = 1 if "SHAPE_CONSTANT_WEIGHT" in task["ops_list"] else 1000000000
   #tf_functions.SHAPE_CONSTANT_WEIGHT = task["costs"]["Tensor-Operations"]["SHAPE_CONSTANT_WEIGHT"]
-  tf_functions.OUTPUT_SHAPE_TUPLE_WEIGHT = 1 if "OUTPUT_SHAPE_TUPLE_WEIGHT" in task["ops_list"] else 0
+  tf_functions.OUTPUT_SHAPE_TUPLE_WEIGHT = 1 if "OUTPUT_SHAPE_TUPLE_WEIGHT" in task["ops_list"] else 1000000000
   #tf_functions.OUTPUT_SHAPE_TUPLE_WEIGHT = task["costs"]["Tensor-Operations"]["OUTPUT_SHAPE_TUPLE_WEIGHT"]
-  tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.int32] = 1 if "CONSTANT_DTYPES_AND_WEIGHTS[tf.int32]" in task["ops_list"] else 0
+  tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.int32] = 1 if "CONSTANT_DTYPES_AND_WEIGHTS[tf.int32]" in task["ops_list"] else 1000000000
   #tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.int32] = task["costs"]["Tensor-Operations"]["CONSTANT_DTYPES_AND_WEIGHTS[tf.int32]"]
-  tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.float32] = 1 if "CONSTANT_DTYPES_AND_WEIGHTS[tf.float32]" in task["ops_list"] else 0
+  tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.float32] = 1 if "CONSTANT_DTYPES_AND_WEIGHTS[tf.float32]" in task["ops_list"] else 1000000000
   #tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.float32] = task["costs"]["Tensor-Operations"]["CONSTANT_DTYPES_AND_WEIGHTS[tf.float32]"]
-  tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.bool] = 1 if "CONSTANT_DTYPES_AND_WEIGHTS[tf.bool]" in task["ops_list"] else 0
+  tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.bool] = 1 if "CONSTANT_DTYPES_AND_WEIGHTS[tf.bool]" in task["ops_list"] else 1000000000
   #tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.bool] = task["costs"]["Tensor-Operations"]["CONSTANT_DTYPES_AND_WEIGHTS[tf.bool]"]
-  tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.int64] = 1 if "CONSTANT_DTYPES_AND_WEIGHTS[tf.int64]" in task["ops_list"] else 0
+  tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.int64] = 1 if "CONSTANT_DTYPES_AND_WEIGHTS[tf.int64]" in task["ops_list"] else 1000000000
   #tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.int64] = task["costs"]["Tensor-Operations"]["CONSTANT_DTYPES_AND_WEIGHTS[tf.int64]"]
   print("tf_functions.PROVIDED_CONSTANT_WEIGHT:", tf_functions.PROVIDED_CONSTANT_WEIGHT)
   print("tf_functions.COMMON_CONSTANT_WEIGHT:", tf_functions.COMMON_CONSTANT_WEIGHT)
