@@ -579,10 +579,9 @@ def get_reweighted_operations(
   new_operations = []
   for operation in operations:
     print("operation:", operation, operation.name in task["ops_list"])
-    op_weight = 1 if operation.name in task["ops_list"] else 0 #task["costs"]["Tensor-Operations"].get(operation.name, 0)
-    operation.weight = op_weight
-    new_operations.append(operation)
-    print("ops:", operation.name, operation.weight)
+    if operation.name in task["ops_list"]:
+      operation.weight = 1
+      new_operations.append(operation)
   tf_functions.PROVIDED_CONSTANT_WEIGHT = 1 if "PROVIDED_CONSTANT_WEIGHT" in task["ops_list"] else 0
   #tf_functions.PROVIDED_CONSTANT_WEIGHT = task["costs"]["Tensor-Operations"]["PROVIDED_CONSTANT_WEIGHT"]
   tf_functions.COMMON_CONSTANT_WEIGHT = 1 if "COMMON_CONSTANT_WEIGHT" in task["ops_list"] else 0
@@ -616,7 +615,7 @@ def get_reweighted_operations(
   print("tf.float32:", tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.float32])
   print("tf.bool:", tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.bool])
   print("tf.int64:", tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.int64])
-  print("new-ops:", new_operations)
+  print("new-ops:", [op.name for op in new_operations])
   return new_operations
 
 
