@@ -393,7 +393,7 @@ def stackoverflow_16():
                              source=source,
                              name='stackoverflow_16')
 
-
+"""
 def stackoverflow_17():
   examples = [
       benchmark.Example(
@@ -414,7 +414,7 @@ def stackoverflow_17():
                              target_program=target_program,
                              source=source,
                              name='stackoverflow_17')
-
+"""
 
 def stackoverflow_18():
   examples = [
