@@ -547,7 +547,7 @@ def get_reweighted_operations(
 ) -> List[operation_base.Operation]:
   """Returns a list of operations with correct weights for the problem."""
   print("benchmark-name:", benchmark.name)
-  tasks = read_json_file("tfcoder_pcfg_gpt4-20.json")
+  tasks = read_json_file("counts_out.json")
   task = find_task_by_id(tasks, benchmark.name)
   include_sparse_operations = (
       not settings.operations.limit_sparse_operations or
@@ -576,21 +576,36 @@ def get_reweighted_operations(
         multipliers,
         operation_multipliers_from_tensor_model(benchmark, tensor_model,
                                                 tensor_config, settings))
+  new_operations = []
   for operation in operations:
-    op_weight = task["costs"]["Tensor-Operations"].get(operation.name, 0)
-    operation.weight = op_weight # todo: change here!
+    #op_weight = task["costs"]["Tensor-Operations"].get(operation.name, 0)
+    #operation.weight = op_weight # todo: change here!
+    print("operation:", operation, operation.name in task["ops_list"])
+    if operation.name in task["ops_list"]:
+      operation.weight = 1
+      new_operations.append(operation)
     print("ops:", operation.name, operation.weight)
-  tf_functions.PROVIDED_CONSTANT_WEIGHT = task["costs"]["Tensor-Operations"]["PROVIDED_CONSTANT_WEIGHT"]
-  tf_functions.COMMON_CONSTANT_WEIGHT = task["costs"]["Tensor-Operations"]["COMMON_CONSTANT_WEIGHT"]
-  tf_functions.PRIMITIVE_INPUT_AS_TENSOR_WEIGHT = task["costs"]["Tensor-Operations"]["PRIMITIVE_INPUT_AS_TENSOR_WEIGHT"]
-  tf_functions.INPUT_VARIABLE_WEIGHT = task["costs"]["Tensor-Operations"]["INPUT_VARIABLE_WEIGHT"]
-  tf_functions.AXIS_CONSTANT_WEIGHT = task["costs"]["Tensor-Operations"]["AXIS_CONSTANT_WEIGHT"]
-  tf_functions.SHAPE_CONSTANT_WEIGHT = task["costs"]["Tensor-Operations"]["SHAPE_CONSTANT_WEIGHT"]
-  tf_functions.OUTPUT_SHAPE_TUPLE_WEIGHT = task["costs"]["Tensor-Operations"]["OUTPUT_SHAPE_TUPLE_WEIGHT"]
-  tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.int32] = task["costs"]["Tensor-Operations"]["CONSTANT_DTYPES_AND_WEIGHTS[tf.int32]"]
-  tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.float32] = task["costs"]["Tensor-Operations"]["CONSTANT_DTYPES_AND_WEIGHTS[tf.float32]"]
-  tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.bool] = task["costs"]["Tensor-Operations"]["CONSTANT_DTYPES_AND_WEIGHTS[tf.bool]"]
-  tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.int64] = task["costs"]["Tensor-Operations"]["CONSTANT_DTYPES_AND_WEIGHTS[tf.int64]"]
+  tf_functions.PROVIDED_CONSTANT_WEIGHT = 1 if "PROVIDED_CONSTANT_WEIGHT" in task["ops_list"] else 1000000000
+  #tf_functions.PROVIDED_CONSTANT_WEIGHT = task["costs"]["Tensor-Operations"]["PROVIDED_CONSTANT_WEIGHT"]
+  tf_functions.COMMON_CONSTANT_WEIGHT = 1 if "COMMON_CONSTANT_WEIGHT" in task["ops_list"] else 1000000000
+  #tf_functions.COMMON_CONSTANT_WEIGHT = task["costs"]["Tensor-Operations"]["COMMON_CONSTANT_WEIGHT"]
+  tf_functions.PRIMITIVE_INPUT_AS_TENSOR_WEIGHT = 1 if "PRIMITIVE_INPUT_AS_TENSOR_WEIGHT" in task["ops_list"] else 1000000000
+  #tf_functions.PRIMITIVE_INPUT_AS_TENSOR_WEIGHT = task["costs"]["Tensor-Operations"]["PRIMITIVE_INPUT_AS_TENSOR_WEIGHT"]
+  tf_functions.INPUT_VARIABLE_WEIGHT = 1 if "INPUT_VARIABLE_WEIGHT" in task["ops_list"] else 1000000000
+  #tf_functions.INPUT_VARIABLE_WEIGHT = task["costs"]["Tensor-Operations"]["INPUT_VARIABLE_WEIGHT"]
+  tf_functions.AXIS_CONSTANT_WEIGHT = 1 if "AXIS_CONSTANT_WEIGHT" in task["ops_list"] else 1000000000
+  #tf_functions.AXIS_CONSTANT_WEIGHT = task["costs"]["Tensor-Operations"]["AXIS_CONSTANT_WEIGHT"]
+  tf_functions.SHAPE_CONSTANT_WEIGHT = 1 if "SHAPE_CONSTANT_WEIGHT" in task["ops_list"] else 1000000000
+  #tf_functions.SHAPE_CONSTANT_WEIGHT = task["costs"]["Tensor-Operations"]["SHAPE_CONSTANT_WEIGHT"]
+  tf_functions.OUTPUT_SHAPE_TUPLE_WEIGHT = 1 if "OUTPUT_SHAPE_TUPLE_WEIGHT" in task["ops_list"] else 1000000000
+  #tf_functions.OUTPUT_SHAPE_TUPLE_WEIGHT = task["costs"]["Tensor-Operations"]["OUTPUT_SHAPE_TUPLE_WEIGHT"]
+  tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.int32] = 1 if "CONSTANT_DTYPES_AND_WEIGHTS[tf.int32]" in task["ops_list"] else 1000000000
+  #tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.int32] = task["costs"]["Tensor-Operations"]["CONSTANT_DTYPES_AND_WEIGHTS[tf.int32]"]
+  tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.float32] = 1 if "CONSTANT_DTYPES_AND_WEIGHTS[tf.float32]" in task["ops_list"] else 1000000000
+  #tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.float32] = task["costs"]["Tensor-Operations"]["CONSTANT_DTYPES_AND_WEIGHTS[tf.float32]"]
+  tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.bool] = 1 if "CONSTANT_DTYPES_AND_WEIGHTS[tf.bool]" in task["ops_list"] else 1000000000
+  #tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.bool] = task["costs"]["Tensor-Operations"]["CONSTANT_DTYPES_AND_WEIGHTS[tf.bool]"]
+  tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.int64] = 1 if "CONSTANT_DTYPES_AND_WEIGHTS[tf.int64]" in task["ops_list"] else 1000000000
   print("tf_functions.PROVIDED_CONSTANT_WEIGHT:", tf_functions.PROVIDED_CONSTANT_WEIGHT)
   print("tf_functions.COMMON_CONSTANT_WEIGHT:", tf_functions.COMMON_CONSTANT_WEIGHT)
   print("tf_functions.PRIMITIVE_INPUT_AS_TENSOR_WEIGHT:", tf_functions.PRIMITIVE_INPUT_AS_TENSOR_WEIGHT)
@@ -602,7 +617,8 @@ def get_reweighted_operations(
   print("tf.float32:", tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.float32])
   print("tf.bool:", tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.bool])
   print("tf.int64:", tf_functions.CONSTANT_DTYPES_AND_WEIGHTS[tf.int64])
-  return operations
+  print("new-ops:", [op.name for op in new_operations])
+  return new_operations
 
 
 def run_value_search(
